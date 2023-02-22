@@ -3,6 +3,7 @@ package kr.ac.sbs.controller;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,9 +41,12 @@ public class ReplyController {
 	}
 	
 	@PostMapping("/regist")
-	public ResponseEntity<String> register(@RequestBody ReplyVO reply) throws Exception {
+	public ResponseEntity<String> register(@RequestBody ReplyVO reply, HttpServletRequest request) throws Exception {
 		ResponseEntity<String> entity = null;
 
+		String XSSReplytext = (String)request.getAttribute("XSSreplytext");
+		if(XSSReplytext !=null)reply.setReplytext(XSSReplytext);
+		
 		service.registReply(reply);
 
 		SearchCriteria cri = new SearchCriteria();
@@ -59,9 +63,12 @@ public class ReplyController {
 	}
 	
 	@PostMapping("/modify")
-	public ResponseEntity<String> modify(@RequestBody ReplyVO reply) throws Exception {
+	public ResponseEntity<String> modify(@RequestBody ReplyVO reply, HttpServletRequest request) throws Exception {
 		ResponseEntity<String> entity = null;
 
+		String XSSReplytext = (String)request.getAttribute("XSSreplytext");
+		if(XSSReplytext !=null)reply.setReplytext(XSSReplytext);
+		
 		service.modifyReply(reply);
 		entity = new ResponseEntity<String>(HttpStatus.OK);
 
