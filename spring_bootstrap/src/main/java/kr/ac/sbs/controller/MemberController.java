@@ -28,6 +28,7 @@ import com.jsp.service.MemberService;
 
 import kr.ac.sbs.command.MemberModifyCommand;
 import kr.ac.sbs.command.MemberRegistCommand;
+import kr.ac.sbs.service.LoginMemberServiceImpl;
 
 @Controller
 @RequestMapping("/member")

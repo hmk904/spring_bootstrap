@@ -41,5 +41,7 @@ public class LoginMemberServiceImpl extends MemberServiceImpl
 		if (!pwd.equals(member.getPwd())) throw new InvalidPasswordException();
 		
 	}
+
+	
 	
 }
