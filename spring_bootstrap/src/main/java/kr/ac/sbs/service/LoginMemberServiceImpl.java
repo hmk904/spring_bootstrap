@@ -2,7 +2,8 @@ package kr.ac.sbs.service;
 
 import java.sql.SQLException;
 
-import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,14 @@ public class LoginMemberServiceImpl extends MemberServiceImpl
 	public LoginMemberServiceImpl(MemberDAO memberDAO) {
 		super.setMemberDAO(memberDAO);
 	}
+	
+//	private Logger logger = LoggerFactory.getLogger(LoginMemberServiceImpl.class);
+//	{
+//		logger.debug("DEBUG : message");
+//		logger.info("info : message");
+//		logger.warn("warn : message");
+//		logger.error("error : message");
+//	}
 	
 	@Override
 	public void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException, SQLException {

@@ -15,6 +15,10 @@
 		p:url="jdbc:oracle:thin:@localhost:1521:XE" p:username="JSP"
 		p:password="JSP" />
 		
+		
+		
+		
+		
 		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean"
 		p:dataSource-ref="dataSource"
 		p:configLocation="classpath:kr/ac/sbs/mybatis/config/sqlConfig.xml"
